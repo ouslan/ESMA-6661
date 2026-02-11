@@ -1,0 +1,83 @@
+\documentclass[10pt, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+
+
+\title{ESMA 6661: The Delta Method}
+\author{Alejandro M. Ouslan}
+\date{Spring 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\vspace{.25in}
+
+\section{Taylor Expancions}
+
+\subsection{Definition Taylor Expansion}
+
+
+\subsection{Taylor Expansion of an Estimator}
+
+Let $T_1,\ldots, T_k$ be a random variables with means $\theta_1, \ldots, \theta_k$
+and define $T=(T_1, \ldots, T_k)$ and $\theta = (\theta_1, \ldots, \theta_k)$. Suppose
+there is a differentiable function $g(T)$. We are interested in approximate and estimate for the variance.
+Define $g(\theta) = g'(t)$ and $t_1 = \theta_1, \ldots, t_k= \theta_k$.
+
+\[
+	\begin{split}
+		E[g(t)] \approx g(\theta) + g'(\theta)E[(T-\theta)] = g(\theta) \\
+		E[g(t)] \approx g(\theta)
+	\end{split}
+\]
+
+For the variance
+\[
+	\begin{split}
+		Var(g(t)) \approx [g'(\theta)]^2 Var(T)
+	\end{split}
+\]
+This tells us that:
+\begin{enumerate}
+	\item $g(T) \sim (g(\theta), [g'(\theta)]^2 Var(T))$
+	\item I dont know the distribution but i can guess the mena and the var
+\end{enumerate}
+
+
+\subsection{Example: Approximate variance for the odds}
+
+Let $X_1, \ldots, X_n \sim Bernoulli(p)$. Define the odds as $\frac{p}{1-p}$,
+consider the estimator $\hat{p}$.
+
+\[
+	\begin{split}
+		x_i = \begin{cases}
+			      1 ; \text{ With probability } p \\
+			      0 ; \text{ with probability } 1-p
+		      \end{cases}                                                                             \\
+		\frac{p}{1-p} = g(p)                                                                                               \\
+		\text{Consider } \hat{p}\frac{1}{n} \sum_{i=1}^n x_i = \bar{n}; \text{ By CLT} \bar{X} \sim N(p, \frac{p(1-p)}{n}) \\
+		g(\hat{p}) = \frac{\hat{p}}{1-\hat{p}} = \frac{\bar{x}}{1-\bar{x}} \sim F
+	\end{split}
+\]
+
+
+
+\end{document}
