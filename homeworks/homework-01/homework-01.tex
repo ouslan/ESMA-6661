@@ -129,9 +129,14 @@ I have read the syllabus, understand its contents, and have no questions.
 % Homework problem 2
 \section*{Problem 2: Definitions}
 \begin{enumerate}[(a)]
-	\item \textbf{Sample Space:}
-	\item \textbf{Kolmgorov Axioms of Probability:}
-	\item \textbf{Exponential family:}
+	\item \textbf{Sample Space:} The sample space is the set of all possible outcomes of an experiment. It is to say
+	      everything that could happen in the experiment
+	\item \textbf{Kolmgorov Axioms of Probability:} It is a set of rules that define the probability of an event. Those rules can
+	      be summarized by the sum of the probability of all the events is 1, the probability of a given event
+	      should be non negative and if the events are disjoint then the probability of the union of the events is
+	      the sum of the probability of the events
+	\item \textbf{Exponential family:} A family of distributions is said to be an exponential family if the pdf can be
+	      written in the form
 	\item \textbf{Convergence in distribution:}
 	\item \textbf{Convergence in Probability:}
 	\item \textbf{Almost sure convergence (or convergence with probability 1):}
@@ -146,19 +151,91 @@ Show that each of the following families of distributions is an exponential fami
 
 \begin{enumerate}[(a)]
 	\item The family of Bernoulli distribution with a unknown value of the parameter $p$.
-	\item The family of Poisson distributions with an unknown mean
-	\item The family of negative binomial dstributions for which the value of $r$ is known and
+	      \[
+		      f(x; p) = p^x(1-p)^{1-x}, \quad x \in \{0,1\}
+	      \]
+	      \[
+		      f(x; p) = \exp\left(x \log(p) + (1 - x) \log(1 - p)\right)
+	      \]
+	      Hence, it is in the form of an exponential family with natural parameter $\theta = \log\left(\frac{p}{1 - p}\right)$, sufficient statistic $T(x) = x$,
+	      and log-partition function $A(\theta) = \log(1 + \exp(\theta))$.
+	\item The family of Poisson distributions with an unknown mean $\lambda$
+	      \[
+		      f(x; \lambda) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x \in \{0,1,2,\dots\}
+	      \]
+	      \[
+		      f(x; \lambda) = \exp\left(x \log(\lambda) - \lambda - \log(x!)\right)
+	      \]
+	      Hence, it is in the form of an exponential family with natural parameter $\theta = \log(\lambda)$, sufficient statistic $T(x) = x$,
+	      and log-partition function $A(\theta) = e^\theta$.
+
+	\item The family of negative binomial distributions for which the value of $r$ is known and
 	      the value of $p$ is unknown.
-	\item The family of normal distributions with an unknown mean and a known variance.
+	      \[
+		      f(x; p) = \binom{x + r - 1}{x} p^x (1 - p)^r, \quad x = 0, 1, 2, \dots
+	      \]
+	      \[
+		      f(x; p) = \exp\left(x \log(p) + (r - 1) \log(1 - p) + \log\left(\binom{x + r - 1}{x}\right)\right)
+	      \]
+	      Thus, it is in the form of an exponential family with natural parameter $\theta = \log\left(\frac{p}{1 - p}\right)$, sufficient statistic $T(x) = x$, and log-partition function $A(\theta) = -r \log(1 - \exp(\theta))$.
+
+	\item The family of normal distributions with an unknown mean and a known variance $\sigma^$.
+	      \[
+		      f(x; \mu) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+	      \]
+	      \[
+		      f(x; \mu) = \exp\left(-\frac{1}{2\sigma^2} \left(x^2 - 2\mu x + \mu^2\right)\right)
+	      \]
+	      Hence, it is in the form of an exponential family with natural parameter $\theta = \frac{\mu}{\sigma^2}$, sufficient statistic $T(x) = x$, and log-partition function $A(\theta) = \frac{\mu^2}{2\sigma^2}$.
+
 	\item The family of normal distributions with an unknown variance and a known mean.
+	      \[
+		      f(x; \sigma^2) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+	      \]
+	      \[
+		      f(x; \sigma^2) = \exp\left(-\frac{1}{2\sigma^2} (x - \mu)^2 - \frac{1}{2} \log(2\pi \sigma^2)\right)
+	      \]
+	      Hence, it is in the form of an exponential family with natural parameter $\theta = -\frac{1}{2\sigma^2}$, sufficient statistic $T(x) = (x - \mu)^2$, and log-partition function $A(\theta) = -\frac{1}{2} \log(-2\pi \theta)$.
+
 	\item The family of gamma distributions for which the value of $\alpha$ is unknown and the value
 	      of $\beta$ is known.
+	      \[
+		      f(x; \alpha) = \frac{x^{\alpha - 1} e^{-x/\beta}}{\Gamma(\alpha) \beta^\alpha}, \quad x > 0
+	      \]
+	      \[
+		      f(x; \alpha) = \exp\left((\alpha - 1) \log(x) - \frac{x}{\beta} - \log(\Gamma(\alpha)) - \alpha \log(\beta)\right)
+	      \]
+	      Hence, it is in the form of an exponential family with natural parameter $\theta = -\frac{1}{\beta}$, sufficient statistic $T(x) = x$, and log-partition function $A(\theta) = -\alpha \log(-\theta \beta)$.
+
 	\item The family of gamma distributions for which the value of $\alpha$ is known and the value of
 	      $\beta$ is unknown.
+	      \[
+		      f(x; \beta) = \frac{x^{\alpha - 1} e^{-x/\beta}}{\Gamma(\alpha) \beta^\alpha}, \quad x > 0
+	      \]
+	      \[
+		      f(x; \beta) = \exp\left((\alpha - 1) \log(x) - \frac{x}{\beta} - \log(\Gamma(\alpha)) - \alpha \log(\beta)\right)
+	      \]
+	      Hence, it is in the form of an exponential family with natural parameter $\theta = -\frac{1}{\beta}$, sufficient statistic $T(x) = x$, and log-partition function $A(\theta) = \alpha \log(-\theta)$.
+
 	\item The family of beta distributions for which the value of $\alpha$ is unknown and the value of
 	      $\beta$ is known.
+	      \[
+		      f(x; \alpha) = \frac{x^{\alpha - 1} (1 - x)^{\beta - 1}}{B(\alpha, \beta)}, \quad x \in [0, 1]
+	      \]
+	      \[
+		      f(x; \alpha) = \exp\left((\alpha - 1) \log(x) + (\beta - 1) \log(1 - x) - \log(B(\alpha, \beta))\right)
+	      \]
+	      Hence, it is in the form of an exponential family with natural parameter $\theta_1 = \alpha - 1$ and $\theta_2 = \beta - 1$, sufficient statistic $T(x) = (\log(x), \log(1 - x))$, and log-partition function $A(\theta_1, \theta_2) = \log(B(\alpha, \beta))$.
+
 	\item The family of beta distributions for which the value of $\alpha$ is known and the value of $\beta$
 	      is unknown.
+	      \[
+		      f(x; \beta) = \frac{x^{\alpha - 1} (1 - x)^{\beta - 1}}{B(\alpha, \beta)}, \quad x \in [0, 1]
+	      \]
+	      \[
+		      f(x; \beta) = \exp\left((\alpha - 1) \log(x) + (\beta - 1) \log(1 - x) - \log(B(\alpha, \beta))\right)
+	      \]
+	      Hence, it is in the form of an exponential family with natural parameter $\theta_1 = \alpha - 1$ and $\theta_2 = \beta - 1$, sufficient statistic $T(x) = (\log(x), \log(1 - x))$, and log-partition function $A(\theta_1, \theta_2) = \log(B(\alpha, \beta))$.
 \end{enumerate}
 
 % Homework problem 4
