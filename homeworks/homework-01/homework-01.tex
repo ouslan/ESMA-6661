@@ -179,7 +179,7 @@ Show that each of the following families of distributions is an exponential fami
 	      \]
 	      Thus, it is in the form of an exponential family with natural parameter $\theta = \log\left(\frac{p}{1 - p}\right)$, sufficient statistic $T(x) = x$, and log-partition function $A(\theta) = -r \log(1 - \exp(\theta))$.
 
-	\item The family of normal distributions with an unknown mean and a known variance $\sigma^$.
+	\item The family of normal distributions with an unknown mean and a known variance $\sigma^2$.
 	      \[
 		      f(x; \mu) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
 	      \]
@@ -262,6 +262,36 @@ Let $X$ be a random variable with a Student's $t$ distribution with $p$ degrees 
 Suppose that $X$ has the log-normal distribution with parameters $\mu$ and $\sigma^2$. Find the
 distribution of $\frac{1}{X}$.
 
+Let $X$ follow a lognormal distribution, so:
+\[
+	X \sim \text{Lognormal}(\mu, \sigma^2) \quad \text{implies} \quad \log(X) \sim N(\mu, \sigma^2)
+\]
+This means that:
+\[
+	X = \exp(Z) \quad \text{where} \quad Z \sim N(\mu, \sigma^2)
+\]
+
+Now, we are asked to find the distribution of $Y = \frac{1}{X}$.
+
+We can write $Y$ as:
+\[
+	Y = \frac{1}{X} = \frac{1}{\exp(Z)} = \exp(-Z)
+\]
+
+Since $Z \sim N(\mu, \sigma^2)$, the random variable $-Z$ follows a normal distribution with parameters $-\mu$ and $\sigma^2$, i.e.,
+\[
+	-Z \sim N(-\mu, \sigma^2)
+\]
+
+Thus, $Y = \exp(-Z)$ follows a lognormal distribution, and we conclude:
+\[
+	Y \sim \text{Lognormal}(-\mu, \sigma^2)
+\]
+
+Therefore, the distribution of $Y = \frac{1}{X}$ is a lognormal distribution with parameters $-\mu$ and $\sigma^2$:
+\[
+	Y \sim \text{Lognormal}(-\mu, \sigma^2)
+\]
 \section*{Optional Problem 2:}
 Suppose $\bar{X}$ is the mean of 100 observations from a population with mean $\mu$ and variance
 $\sigma^2 = 9$. Find limits between which $\bar{X}-\mu$ will lie with probability at least 90\%.
