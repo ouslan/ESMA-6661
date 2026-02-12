@@ -137,12 +137,15 @@ I have read the syllabus, understand its contents, and have no questions.
 	      the sum of the probability of the events
 	\item \textbf{Exponential family:} A family of distributions is said to be an exponential family if the pdf can be
 	      written in the form
-	\item \textbf{Convergence in distribution:}
-	\item \textbf{Convergence in Probability:}
-	\item \textbf{Almost sure convergence (or convergence with probability 1):}
-	\item \textbf{Weak law of large numbers:}
-	\item \textbf{Strong law of large numbers:}
-	\item \textbf{Characteristics functions:}
+	\item \textbf{Convergence in distribution:} Convergence of a distributions shows that as the size of given set of random outcome
+	      it the shape or distribution of that set will converge to a given distribution
+	\item \textbf{Convergence in Probability:} Convergence in Probability tells that as your sample gets larger the probability of a
+	      a outcome will get close or more accurate compared to the original probability distribution
+	\item \textbf{Almost sure convergence (or convergence with probability 1):} Almost sure convergence tells if you were to follow an outcome
+	      repeated times you will almost always see it converge to something.
+	\item \textbf{Weak law of large numbers:} It tells that as you sample size increases your estimator will be closer to true estimator
+	\item \textbf{Strong law of large numbers:} If had infinite samples that your estimator will converge to the true estimator.
+	\item \textbf{Characteristics functions:} They are representations of the distributions.
 \end{enumerate}
 
 % Homework problem 3
@@ -243,13 +246,50 @@ Show that each of the following families of distributions is an exponential fami
 Let $X$ be a random variable with a Student's $t$ distribution with $p$ degrees of freedom.
 \begin{enumerate}[(a)]
 	\item Derive the mean and variance of $X$.
+	      \[
+		      f(x) = \frac{\Gamma\left(\frac{p+1}{2}\right)}{\sqrt{p\pi}\,\Gamma\left(\frac{p}{2}\right)} \left(1 + \frac{x^2}{p}\right)^{-\frac{p+1}{2}}
+	      \]
+	      \[
+		      E[X] = \int_{-\infty}^{\infty} x \cdot f(x) \, dx
+	      \]
+	      \[
+		      g(-x) = (-x) \cdot f(-x) = -x \cdot f(x) = -g(x)
+	      \]
+	      \[
+		      E[X] = 0 \quad \text{for } p > 1
+	      \]
 	\item Show that $X^2$ has an $F_{1,p}$ distribution.
+	      \[ X = \frac{Z}{\sqrt{V/p}} \]
+	      where $Z \sim N(0,1)$ and $V \sim \chi^2(p)$ are independent.
+	      \[ X^2 = \frac{Z^2}{V/p} \]
+	      Since the square of a standard normal variable is a Chi-squared variable with 1 degree of freedom, $Z^2 \sim \chi^2(1)$.
+	      \[ X^2 = \frac{Z^2 / 1}{V / p} \]
+
+	      The definition of the $F$-distribution with $d_1$ and $d_2$ degrees of freedom is:
+	      \[ F_{d_1, d_2} = \frac{U_1 / d_1}{U_2 / d_2} \]
+	      where $U_1 \sim \chi^2(d_1)$ and $U_2 \sim \chi^2(d_2)$ are independent.
+
+	      Identifying $U_1 = Z^2$, $d_1 = 1$, $U_2 = V$, and $d_2 = p$, we get:
+	      \[ X^2 \sim F_{1,p} \]
 	\item Let $f(x|p)$ denote the pdf of $X$. Show that
 	      $$
 		      \lim_{p \to \infty} f(x|p) \rightarrow \frac{1}{\sqrt{2\pi}}\exp \{ -\frac{x^2}{2}\}
 	      $$
 	      at each value of $x$, $-\infty < x < \infty$. This correctly suggests that as $p \to \infty$, $X$ converges
 	      in distributions to a $N(0,1)$ random variable (Hint: Use Stirirling's Formula).
+
+	      \textbf{Answer:}
+	      \[ f(x|p) = \frac{\Gamma\left(\frac{p+1}{2}\right)}{\sqrt{p\pi}\Gamma\left(\frac{p}{2}\right)} \left(1 + \frac{x^2}{p}\right)^{-\frac{p+1}{2}} \]
+
+	      Since $\lim_{n \to \infty} (1 + \frac{a}{n})^n = e^a$:
+	      \[ \lim_{p \to \infty} \left(1 + \frac{x^2}{p}\right)^{-\frac{p+1}{2}} = \lim_{p \to \infty} \left[ \left(1 + \frac{x^2}{p}\right)^p \right]^{-\frac{p+1}{2p}} = (e^{x^2})^{-1/2} = e^{-x^2/2} \]
+
+	      Using Stirling's approximation $\frac{\Gamma(n+k)}{\Gamma(n)} \sim n^k$ as $n \to \infty$:
+	      Let $n = p/2$ and $k = 1/2$:
+	      \[ \frac{\Gamma(\frac{p+1}{2})}{\Gamma(\frac{p}{2})} \approx \left(\frac{p}{2}\right)^{1/2} \]
+	      \[ \lim_{p \to \infty} \frac{1}{\sqrt{p\pi}} \frac{\Gamma(\frac{p+1}{2})}{\Gamma(\frac{p}{2})} = \frac{1}{\sqrt{p\pi}} \sqrt{\frac{p}{2}} = \frac{1}{\sqrt{2\pi}} \]
+
+	      \[ \lim_{p \to \infty} f(x|p) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \]
 	\item Use the results of parts (a) and (b) to argue that, as $p \to \infty$, $X$ converges in
 	      distribution to a $X^2_1$ random variable.
 	\item What might you conjecture about the distributional limit, as $p \to \infty$, of
