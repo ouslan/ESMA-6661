@@ -292,8 +292,33 @@ Let $X$ be a random variable with a Student's $t$ distribution with $p$ degrees 
 	      \[ \lim_{p \to \infty} f(x|p) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \]
 	\item Use the results of parts (a) and (b) to argue that, as $p \to \infty$, $X$ converges in
 	      distribution to a $X^2_1$ random variable.
+
+	      As $p \to \infty$, $X$ converge to a normal distribution standard and normal random variable $Z \sim N(0,1)$. Then, if $X \xrightarrow{d} Z$, then $g(X) \xrightarrow{d} g(Z)$ for any continuous function $g$. Let $g(x) = x^2$:
+	      \[ X^2 \xrightarrow{d} Z^2 \]
+	      Since $Z \sim N(0,1)$, its square is distributed as:
+	      \[ X^2 \xrightarrow{d} \chi^2_1 \]
 	\item What might you conjecture about the distributional limit, as $p \to \infty$, of
-	      $F_{p,q}$
+	      $F_{q,p}$
+
+	      As the denominator degrees of freedom $p \to \infty$, the distribution of $q \cdot F_{q,p}$ converges in distribution to a Chi-squared random variable with $q$ degrees of freedom:
+	      \[
+		      q \cdot F_{q,p} \xrightarrow{d} \chi^2_q
+	      \]
+	      \[
+		      F_{q,p} \xrightarrow{d} \frac{\chi^2_q}{q}
+	      \]
+	      \[
+		      F_{q,p} = \frac{U/q}{V/p}
+	      \]
+	      \[
+		      \frac{V}{p} \xrightarrow{P} E\left[\frac{V}{p}\right] = \frac{p}{p} = 1
+	      \]
+	      \[
+		      F_{q,p} = \frac{U/q}{V/p} \xrightarrow{d} \frac{U/q}{1} = \frac{U}{q}
+	      \]
+	      \[
+		      q \cdot F_{q,p} \xrightarrow{d} U \sim \chi^2_q
+	      \]
 \end{enumerate}
 
 % Optional Problem 1
