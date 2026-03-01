@@ -97,7 +97,7 @@
 \setlength\parindent{0pt}
 
 % Homework Details
-\newcommand{\hmwkTitle}{Asignación 2}
+\newcommand{\hmwkTitle}{Assignment 2}
 \newcommand{\hmwkDueDate}{December 14, 2025}
 \newcommand{\hmwkClass}{ESMA 6661}
 \newcommand{\hmwkClassInstructor}{Israel Almodovar}
@@ -152,13 +152,51 @@ $T$ specified in the exercise is a sufficient statistic for the parameter.
 	\item The beta distribution with parameters $\alpha$ and $\beta$, where the value of $\beta$ is known and
 	      the value of $\beta$ is unknown $(\beta>0);T= \prod^{n}_{i=1}X_n$.
 	\item The discrete uniform distribution take values of $1,2,\ldots, \theta$,
-	      $f(x|\theta) = \frac{1}{\theta}; x \in \{1,2,\ldots, \theta\}$
+	      $$
+		      f(x|\theta) = \frac{1}{\theta}; x \in \{1,2,\ldots, \theta\}
+	      $$
 	\item The uniform distribution on the interval $[a,b]$, where the value of $b$ is known and the value of
-	      $b$ is unknown $(a>b); T = max{X_1,\ldots,X_n}$.
+	      $b$ is unknown $(a>b); T = max\{X_1,\ldots,X_n\}$.
 	\item The uniform distribution on the interval $[a,b]$, where the value of $b$ is known and the value of
-	      $b$ is unknown $(a<b); T = min{X_1,\ldots,X_n}$.
-
-
+	      $b$ is unknown $(a<b); T = min\{X_1,\ldots,X_n\}$.
 \end{enumerate}
+
+\section*{Problem 3: TBD}
+
+Let $X \sim N(0,\sigma^2)$ with $\sigma^2 > 0$ unknown. Determine if $|X|$ is a sufficient.
+
+\section*{Problem 4: TBD}
+
+Let $X_1, \ldots, X_n$ be independent random variables with densities.
+$$
+	f_{x_i}(x|\theta) = exp\{i\theta - x\} I(x \geq i\theta);
+$$
+where $I(x \geq i \theta)$ is the indicator function,
+$$ I(x \geq i \theta) = \begin{cases}
+		1, \quad x \geq i\theta \\
+		0, \quad x < i\theta
+	\end{cases}
+$$
+
+Prove that $T = min(X_i /i )$ is a sufficient statistic for $\theta$.
+
+\section*{Problem 5: TBD}
+
+For each of the following distribution let $X_1, \ldots, X_n$, be a random sample find a minimal
+sufficient statistic for $\theta$
+
+\begin{enumerate}
+	\item \textbf{Normal:}
+	      $$f(x|\theta) =\frac{1}{\sqrt{2\pi}}e^{-\frac{(x-\theta)^2}{2}}, \quad - \infty<x<\infty; - \infty<\theta<\infty$$
+	\item \textbf{Location exponential:}
+	      $$f(x|\theta) =e^{-(x-\theta)}, \quad \theta < x < \infty, \quad - \infty<\theta<\infty$$
+	\item \textbf{Logistic:}
+	      $$f(x|\theta) =\frac{e^{-(x-\theta)}}{(1+e^{-(x-\theta)})^2}, \quad -\infty < x < \infty; - \infty<\theta<\infty$$
+	\item \textbf{Cauchy:}
+	      $$f(x|\theta) = \frac{1}{\pi} \frac{1}{1 + (x-\theta)^2}; \quad - \infty<x<\infty; \infty<\theta<\infty$$
+	\item \textbf{Laplace (double exponential):}
+	      $$f(x|\theta) = \frac{1}{2}e^{-|x-\theta|}, \quad - \infty<x<\infty; - \infty<\theta<\infty$$
+\end{enumerate}
+
 
 \end{document}
