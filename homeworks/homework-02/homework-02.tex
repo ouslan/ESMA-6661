@@ -199,4 +199,48 @@ sufficient statistic for $\theta$
 \end{enumerate}
 
 
+\section*{Problem 6: TBD}
+
+Let $X_1, \ldots, X_n$ be i.i.d with geometric distribution
+$$
+	P_\theta(X=x) = \theta(1-\theta)^{x-1}, \quad x=1,2,\ldots, \quad 0 < \theta < 1
+$$
+
+Show that $\sum X_i$ is sufficient for $\theta$, and find the family of distributions of $\sum X_i$. Is the
+family complete?
+
+\section*{Problem 7: TBD}
+Let $X$ be one observation from the pdf
+$$
+	f(x|\theta) = \left(\frac{\theta}{2}\right)^{|x|}(1-\theta), \quad x= -1,0,1, \quad 0<\theta<1
+$$
+
+\begin{enumerate}
+	\item Is $X$ a complete sufficient statistic?
+	\item Is $|X|$ a complete sufficient statistic?
+	\item Does $f(\dot|\theta)$ belong to the exponential class?
+\end{enumerate}
+
+\section*{Problem 8: TBD}
+
+Another popular distribution is the inverse Gaussian distribution. This distribution has
+many applications, particularly in modeling of lifetimes. See the books by Chikhris and
+Folks (1989) and Seshadri (1993). Let $X_1, \ldots , X_n$ be a random sample from the inverse
+Gaussian distribution with pdf
+
+$$
+	f(x|\mu, \lambda) = \frac{\lambda}{\sqrt{2\pi X^3}}\exp{\left( -\frac{\lambda(x-\mu)^2}{2 \mu^2x} \right)}, 0 < x < \infty
+$$
+
+
+\begin{enumerate}[(a)]
+	\item Show that the statistics
+	      $$
+		      \bar{X}= \frac{1}{n}\sum_{i=1}^{n}X_i \quad \text{ and } T=\frac{n}{\sum_{i=n}^{n} \frac{1}{X_i} - \frac{1}{X}}
+	      $$
+	      are sufficient and complete
+	\item For part 2, show that $\bar{X}$ has an inverse Gaussian distribution, and $n \lambda/T$ has a $\chi^2_1$
+	      distribution, and they are independent. (Schwarz and Samanta 1991 do the general case.)
+\end{enumerate}
+
 \end{document}
