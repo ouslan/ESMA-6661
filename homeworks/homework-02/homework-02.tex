@@ -842,9 +842,77 @@ $$
 	      $$
 		      \bar{X}= \frac{1}{n}\sum_{i=1}^{n}X_i \quad \text{ and } T=\frac{n}{\sum_{i=n}^{n} \frac{1}{X_i} - \frac{1}{X}}
 	      $$
-	      are sufficient and complete
+	      \[
+		      f(x|\mu, \lambda) = \frac{\lambda}{\sqrt{2\pi x^3}} \exp\left( -\frac{\lambda (x-\mu)^2}{2 \mu^2 x} \right), \quad x>0.
+	      \]
+	      \[
+		      \bar{X} = \frac{1}{n}\sum_{i=1}^n X_i, \quad
+		      T = \frac{n}{\sum_{i=1}^{n} \frac{1}{X_i} - \frac{1}{\bar{X}} }.
+	      \]
+	      \[
+		      L(\mu,\lambda|x_1,\dots,x_n) = \prod_{i=1}^n \frac{\lambda}{\sqrt{2\pi x_i^3}}
+		      \exp\left(-\frac{\lambda (x_i-\mu)^2}{2 \mu^2 x_i}\right) \\
+		      = \lambda^n (2\pi)^{-n/2} \prod_{i=1}^n x_i^{-3/2} \exp\left(-\frac{\lambda}{2} \\ \sum_{i=1}^n \frac{(x_i-\mu)^2}{\mu^2 x_i}\right).
+	      \]
+	      \[
+		      \sum_{i=1}^n \frac{(x_i-\mu)^2}{\mu^2 x_i} = \sum_{i=1}^n \frac{x_i}{\mu^2} - \frac{2n}{\mu} + \sum_{i=1}^n \frac{1}{x_i}.
+	      \]
+	      \[
+		      L(\mu,\lambda) = \lambda^n (2\pi)^{-n/2} \prod_{i=1}^n x_i^{-3/2} \\
+		      \exp\left[-\frac{\lambda}{2} \left( \frac{\sum x_i}{\mu^2} - \frac{2n}{\mu} + \sum \frac{1}{x_i} \right)\right].
+	      \]
+	      \[
+		      \sum_{i=1}^n X_i \quad \text{and} \quad \sum_{i=1}^n \frac{1}{X_i}.
+	      \]
+	      \[
+		      (\bar{X}, T)
+	      \]
+	      \[
+		      f(x|\mu,\lambda) = h(x) \exp\left( \eta_1(\mu) x + \eta_2(\mu) \frac{1}{x} - A(\mu, \lambda) \right),
+	      \]
+	      \[
+		      \boxed{(\bar{X}, T) \text{ is a complete and sufficient statistic for } (\mu, \lambda).}
+	      \]
 	\item For part 2, show that $\bar{X}$ has an inverse Gaussian distribution, and $n \lambda/T$ has a $\chi^2_1$
 	      distribution, and they are independent. (Schwarz and Samanta 1991 do the general case.)
+	      \[
+		      f(x|\mu, \lambda) = \frac{\lambda}{\sqrt{2\pi x^3}} \exp\left( -\frac{\lambda (x-\mu)^2}{2 \mu^2 x} \right), \quad x>0.
+	      \]
+	      \[
+		      \bar{X} = \frac{1}{n} \sum_{i=1}^n X_i, \quad
+		      T = \frac{n}{\sum_{i=1}^{n} 1/X_i - 1/\bar{X} }.
+	      \]
+	      \[
+		      S_1 = \sum_{i=1}^n X_i, \quad S_2 = \sum_{i=1}^n \frac{1}{X_i}.
+	      \]
+	      \[
+		      T = \frac{n}{S_2 - n^2/S_1} \implies S_2 = \frac{n^2}{S_1} + \frac{n}{T}.
+	      \]
+	      \[
+		      \sum_{i=1}^n \frac{(X_i-\mu)^2}{\mu^2 X_i} = \frac{S_1}{\mu^2} - \frac{2n}{\mu} + S_2 = \frac{S_1}{\mu^2} - \frac{2n}{\mu} + \frac{n^2}{S_1} + \frac{n}{T}.
+	      \]
+	      \[
+		      L(\mu,\lambda | \bar{X}, T) = f_1(\bar{X}|\mu, \lambda) \cdot f_2(T|\lambda),
+	      \]
+	      \[
+		      X_1, \dots, X_n \sim \text{IG}(\mu, \lambda) \implies \bar{X} \sim \text{IG}(\mu, n\lambda).
+	      \]
+	      \[
+		      \frac{\lambda (X-\mu)^2}{\mu^2 X} \sim \chi^2_1.
+	      \]
+	      \[
+		      \frac{n \lambda}{T} = \sum_{i=1}^n \frac{\lambda (X_i - \bar{X})^2}{\bar{X} X_i} \sim \chi^2_1.
+	      \]
+	      \[
+		      \bar{X} \text{ and } \frac{n \lambda}{T} \text{ are independent}.
+	      \]
+	      \[
+		      \boxed{
+			      \bar{X} \sim \text{IG}(\mu, n \lambda), \quad
+			      \frac{n \lambda}{T} \sim \chi^2_1, \quad
+			      \bar{X} \text{ and } \frac{n \lambda}{T} \text{ are independent.}
+		      }
+	      \]
 \end{enumerate}
 
 \end{document}
