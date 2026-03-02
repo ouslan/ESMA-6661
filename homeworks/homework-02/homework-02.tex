@@ -620,14 +620,76 @@ sufficient statistic for $\theta$
 \begin{enumerate}
 	\item \textbf{Normal:}
 	      $$f(x|\theta) =\frac{1}{\sqrt{2\pi}}e^{-\frac{(x-\theta)^2}{2}}, \quad - \infty<x<\infty; - \infty<\theta<\infty$$
+	      \[
+		      L(\theta; x_1, \dots, x_n) = \prod_{i=1}^{n} f(x_i|\theta)
+		      = (2\pi)^{-n/2} \exp\Bigg(-\frac{1}{2} \sum_{i=1}^{n} (x_i - \theta)^2 \Bigg).
+	      \]
+	      \[
+		      \sum_{i=1}^{n} (x_i - \theta)^2 = \sum_{i=1}^{n} x_i^2 - 2 \theta \sum_{i=1}^{n} x_i + n \theta^2
+	      \]
+	      \[
+		      L(\theta; x_1, \dots, x_n) = (2\pi)^{-n/2} \exp\Bigg(-\frac{1}{2} \sum_{i=1}^{n} x_i^2 \Bigg) \cdot \exp\Bigg(\theta \sum_{i=1}^{n} x_i - \frac{n \theta^2}{2} \Bigg).
+	      \]
+	      \[
+		      L(\theta; x_1, \dots, x_n) = h(x_1, \dots, x_n) \, g\Big(T(x_1, \dots, x_n), \theta\Big)
+	      \]
+	      \[
+		      \boxed{T(X_1, \dots, X_n) = \sum_{i=1}^{n} X_i}
+	      \]
+
+
 	\item \textbf{Location exponential:}
 	      $$f(x|\theta) =e^{-(x-\theta)}, \quad \theta < x < \infty, \quad - \infty<\theta<\infty$$
+	      \[
+		      L(\theta; x_1, \dots, x_n) = \prod_{i=1}^{n} f(x_i|\theta)
+		      = \prod_{i=1}^{n} e^{-(x_i - \theta)} \mathbf{1}_{\{x_i > \theta\}}
+		      = e^{-\sum_{i=1}^{n} (x_i - \theta)} \mathbf{1}_{\{\theta < X_{(1)}\}},
+	      \]
+	      \[
+		      L(\theta; x_1, \dots, x_n) = e^{n \theta - \sum_{i=1}^{n} x_i} \mathbf{1}_{\{\theta < X_{(1)}\}}.
+	      \]
+	      \[
+		      L(\theta; x_1, \dots, x_n) = \underbrace{e^{-\sum x_i}}_{h(x_1, \dots, x_n)} \cdot \underbrace{e^{n\theta} \mathbf{1}_{\{\theta < X_{(1)}\}}}_{g(X_{(1)}, \theta)}.
+	      \]
+	      \[
+		      \boxed{T(X_1, \dots, X_n) = X_{(1)} = \min(X_1, \dots, X_n)}
+	      \]
+
 	\item \textbf{Logistic:}
 	      $$f(x|\theta) =\frac{e^{-(x-\theta)}}{(1+e^{-(x-\theta)})^2}, \quad -\infty < x < \infty; - \infty<\theta<\infty$$
+	      \[
+		      L(\theta; x_1, \dots, x_n) = \prod_{i=1}^{n} f(x_i|\theta)
+		      = \prod_{i=1}^{n} \frac{e^{-(x_i-\theta)}}{\left(1 + e^{-(x_i-\theta)}\right)^2}
+		      = e^{n\theta - \sum_{i=1}^{n} x_i} \prod_{i=1}^{n} \frac{1}{\left(1 + e^{-(x_i-\theta)}\right)^2}.
+	      \]
+	      \[
+		      \boxed{T(X_1, \dots, X_n) = (X_{(1)}, X_{(2)}, \dots, X_{(n)}) \text{}}.
+	      \]
 	\item \textbf{Cauchy:}
 	      $$f(x|\theta) = \frac{1}{\pi} \frac{1}{1 + (x-\theta)^2}; \quad - \infty<x<\infty; \infty<\theta<\infty$$
+	      \[
+		      L(\theta; x_1, \dots, x_n) = \prod_{i=1}^{n} f(x_i|\theta)
+		      = \prod_{i=1}^{n} \frac{1}{\pi} \frac{1}{1 + (x_i-\theta)^2}
+		      = \frac{1}{\pi^n} \prod_{i=1}^{n} \frac{1}{1 + (x_i-\theta)^2}.
+	      \]
+	      \[
+		      \boxed{T(X_1, \dots, X_n) = (X_{(1)}, X_{(2)}, \dots, X_{(n)}) \text{}}.
+	      \]
+
 	\item \textbf{Laplace (double exponential):}
 	      $$f(x|\theta) = \frac{1}{2}e^{-|x-\theta|}, \quad - \infty<x<\infty; - \infty<\theta<\infty$$
+	      \[
+		      L(\theta; x_1, \dots, x_n) = \prod_{i=1}^{n} f(x_i|\theta)
+		      = \prod_{i=1}^{n} \frac{1}{2} e^{-|x_i-\theta|}
+		      = \frac{1}{2^n} e^{-\sum_{i=1}^{n} |x_i - \theta|}.
+	      \]
+	      \[
+		      T(X_1, \dots, X_n) = (X_{(1)}, X_{(2)}, \dots, X_{(n)}),
+	      \]
+	      \[
+		      \boxed{T(X_1, \dots, X_n) = (X_{(1)}, X_{(2)}, \dots, X_{(n)}) \text{ (order statistics)}}.
+	      \]
+
 \end{enumerate}
 
 
