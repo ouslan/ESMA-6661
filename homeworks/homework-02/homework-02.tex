@@ -567,10 +567,17 @@ $T$ specified in the exercise is a sufficient statistic for the parameter.
 	      \]
 \end{enumerate}
 
-\section*{Problem 3: TBD}
+\section*{Problem 3: Sufficient problem}
 
 Let $X \sim N(0,\sigma^2)$ with $\sigma^2 > 0$ unknown. Determine if $|X|$ is a sufficient.
 
+\[
+	f(x; \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{x^2}{2\sigma^2} \right)
+\]
+Since $x^2 = |x|^2$, we can write:
+\[
+	f(x; \sigma^2) = \underbrace{\frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{|x|^2}{2\sigma^2} \right)}_{g(|x|, \sigma^2)} \cdot \underbrace{1}_{h(x)}
+\]
 \section*{Problem 4: TBD}
 
 Let $X_1, \ldots, X_n$ be independent random variables with densities.
