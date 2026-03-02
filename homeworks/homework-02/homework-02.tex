@@ -736,8 +736,93 @@ $$
 
 \begin{enumerate}
 	\item Is $X$ a complete sufficient statistic?
+	      \[
+		      L(\theta;x) = f(x|\theta) = (1-\theta) \left(\frac{\theta}{2}\right)^{|x|}.
+	      \]
+	      \[
+		      E_\theta[g(T(X))] = 0 \quad \forall \theta \implies g(T(X)) = 0
+	      \]
+	      \[
+		      E_\theta[g(X)] = g(-1) f(-1|\theta) + g(0) f(0|\theta) + g(1) f(1|\theta).
+	      \]
+	      \[
+		      f(-1|\theta) = (1-\theta)\frac{\theta}{2}, \quad
+		      f(0|\theta) = 1-\theta, \quad
+		      f(1|\theta) = (1-\theta)\frac{\theta}{2}.
+	      \]
+	      \[
+		      E_\theta[g(X)] = (1-\theta) \left[ \frac{\theta}{2} g(-1) + g(0) + \frac{\theta}{2} g(1) \right] = 0 \quad \forall \theta \in (0,1).
+	      \]
+	      \[
+		      g(0) + \frac{\theta}{2} \big(g(-1) + g(1)\big) = 0 \quad \forall \theta.
+	      \]
+	      \[
+		      g(0) = 0, \quad g(-1) + g(1) = 0 \implies g(1) = -g(-1).
+	      \]
+	      \[
+		      g(-1) = 1, \quad g(1) = -1, \quad g(0) = 0.
+	      \]
+	      \[
+		      E_\theta[g(X)] = \frac{\theta}{2}(1) + 0 + \frac{\theta}{2}(-1) = 0 \quad \forall \theta.
+	      \]
+	      \[
+		      \boxed{\text{The statistic $X$ is sufficient but not complete.}}
+	      \]
 	\item Is $|X|$ a complete sufficient statistic?
+	      \[
+		      P(|X|=0) = P(X=0) = 1-\theta, \quad
+		      P(|X|=1) = P(X=-1 \text{ or } X=1) = (1-\theta)\frac{\theta}{2} + (1-\theta)\frac{\theta}{2} = (1-\theta)\theta.
+	      \]
+	      \[
+		      P(|X|=0) = 1-\theta, \quad P(|X|=1) = \theta(1-\theta).
+	      \]
+	      \[
+		      L(\theta; |X|) =
+		      \begin{cases}
+			      1-\theta,         & |X|=0, \\
+			      \theta(1-\theta), & |X|=1.
+		      \end{cases}
+	      \]
+	      \[
+		      E_\theta[g(|X|)] = 0 \quad \forall \theta.
+	      \]
+	      \[
+		      E_\theta[g(|X|)] = g(0) P(|X|=0) + g(1) P(|X|=1) = g(0)(1-\theta) + g(1) \theta (1-\theta) = (1-\theta)\big(g(0) + \theta g(1)\big).
+	      \]
+	      \[
+		      g(0) + \theta g(1) = 0 \quad \forall \theta.
+	      \]
+	      \[
+		      g(0) = 0, \quad g(1) = 0.
+	      \]
+	      \[
+		      \boxed{|X| \text{ is a complete sufficient statistic.}}
+	      \]
+
 	\item Does $f(\dot|\theta)$ belong to the exponential class?
+	      \[
+		      f(x|\theta) = (1-\theta)\, 2^{-|x|} \theta^{|x|}.
+	      \]
+	      \[
+		      \log f(x|\theta) = |x| \log \theta + \log(1-\theta) - |x| \log 2.
+	      \]
+	      \[
+		      f(x|\theta) = h(x) \exp\big( \eta(\theta) T(x) - A(\theta) \big),
+	      \]
+	      \[
+		      \log f(x|\theta) = \underbrace{|x|}_{T(x)} \underbrace{\log \theta}_{\eta(\theta)} - \underbrace{(-\log(1-\theta))}_{A(\theta)} + \underbrace{(-|x| \log 2)}_{\log h(x)}.
+	      \]
+	      \[
+		      \begin{aligned}
+			      T(x)         & = |x|,             \\
+			      \eta(\theta) & = \log \theta,     \\
+			      A(\theta)    & = -\log(1-\theta), \\
+			      h(x)         & = 2^{-|x|}.
+		      \end{aligned}
+	      \]
+	      \[
+		      \boxed{f(x|\theta) \text{ belongs to the exponential family.}}
+	      \]
 \end{enumerate}
 
 \section*{Problem 8: TBD}
