@@ -145,25 +145,426 @@ $T$ specified in the exercise is a sufficient statistic for the parameter.
 
 \begin{enumerate}[(a)]
 	\item The Bernoulli distribution with parameter $p$, which is unknown $(0<p<1); T= \sum_{n}^{i=1}X_i$.
+
+	      \[
+		      P(X_i = x_i) = p^{x_i}(1-p)^{1-x_i},
+		      \quad x_i \in \{0,1\}.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = \prod_{i=1}^{n} p^{x_i}(1-p)^{1-x_i}.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = p^{\sum_{i=1}^{n} x_i}
+		      (1-p)^{\sum_{i=1}^{n} (1-x_i)}.
+	      \]
+	      \[
+		      \sum_{i=1}^{n} (1-x_i)
+		      = n - \sum_{i=1}^{n} x_i.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = p^{\sum_{i=1}^{n} x_i}
+		      (1-p)^{n - \sum_{i=1}^{n} x_i}.
+	      \]
+
+	      Let
+	      \[
+		      T = \sum_{i=1}^{n} x_i.
+	      \]
+
+	      Then
+
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = p^{T}(1-p)^{n-T}.
+	      \]
+
+	      We can write this as
+
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      =
+		      \underbrace{p^{T}(1-p)^{n-T}}_{g(T,p)}
+		      \cdot
+		      \underbrace{1}_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \sum_{i=1}^{n} X_i
+			      \text{ is a sufficient statistic for } p.
+		      }
+	      \]
 	\item The geometric distribution with parameter $p$, which is unknown $(0<p<1); T= \sum_{n}^{i=1}X_i$.
+	      \[
+		      P(X_i = x_i) = p(1-p)^{x_i-1},
+		      \quad x_i = 1,2,3,\dots
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = \prod_{i=1}^{n} p(1-p)^{x_i-1}.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = p^n (1-p)^{\sum_{i=1}^{n} (x_i - 1)}.
+	      \]
+	      \[
+		      \sum_{i=1}^{n} (x_i - 1)
+		      = \sum_{i=1}^{n} x_i - n.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = p^n (1-p)^{\sum_{i=1}^{n} x_i - n}.
+	      \]
+	      \[
+		      T = \sum_{i=1}^{n} x_i.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = p^n (1-p)^{T-n}.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      =
+		      \underbrace{p^n (1-p)^{T-n}}_{g(T,p)}
+		      \cdot
+		      \underbrace{1}_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \sum_{i=1}^{n} X_i
+			      \text{ is a sufficient statistic for } p.
+		      }
+	      \]
 	\item The negative binomial distribution with parameters $r$ and $p$, where $r$ is known and $p$
 	      is unknown $(0<p<1); T = \sum_{n}^{i = 1}X_i$.
+	      \[
+		      P(X_i = x_i)
+		      = \binom{x_i-1}{r-1} p^{\,r}(1-p)^{x_i-r},
+		      \quad x_i = r, r+1, r+2, \dots
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      = \prod_{i=1}^{n}
+		      \binom{x_i-1}{r-1}
+		      p^{\,r}(1-p)^{x_i-r}.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      =
+		      \left( \prod_{i=1}^{n}
+		      \binom{x_i-1}{r-1} \right)
+		      p^{nr}
+		      (1-p)^{\sum_{i=1}^{n} (x_i-r)}.
+	      \]
+	      \[
+		      \sum_{i=1}^{n} (x_i-r)
+		      = \sum_{i=1}^{n} x_i - nr.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      =
+		      \left( \prod_{i=1}^{n}
+		      \binom{x_i-1}{r-1} \right)
+		      p^{nr}
+		      (1-p)^{\sum_{i=1}^{n} x_i - nr}.
+	      \]
+	      \[
+		      T = \sum_{i=1}^{n} x_i.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n; p)
+		      =
+		      \underbrace{
+			      p^{nr}(1-p)^{T-nr}
+		      }_{g(T,p)}
+		      \;
+		      \underbrace{
+			      \left( \prod_{i=1}^{n}
+			      \binom{x_i-1}{r-1} \right)
+		      }_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \sum_{i=1}^{n} X_i
+			      \text{ is a sufficient statistic for } p.
+		      }
+	      \]
 	\item The normal distribution for which the mean $\mu$ is known and the variance $\sigma^2>0$ is
 	      unknown; $T = \sum_{n}^{i=1}(X_i - \mu)^2$.
+	      \[
+		      T = \sum_{i=1}^{n}(X_i-\mu)^2
+	      \]
+	      \[
+		      f(x_i;\sigma^2)
+		      = \frac{1}{\sqrt{2\pi\sigma^2}}
+		      \exp\!\left(
+		      -\frac{(x_i-\mu)^2}{2\sigma^2}
+		      \right),
+		      \quad -\infty<x_i<\infty.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\sigma^2)
+		      =
+		      (2\pi\sigma^2)^{-n/2}
+		      \exp\!\left(
+		      -\frac{1}{2\sigma^2}
+		      \sum_{i=1}^{n}(x_i-\mu)^2
+		      \right).
+	      \]
+	      \[
+		      T = \sum_{i=1}^{n}(x_i-\mu)^2.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\sigma^2)
+		      =
+		      \underbrace{
+			      (2\pi\sigma^2)^{-n/2}
+			      \exp\!\left(-\frac{T}{2\sigma^2}\right)
+		      }_{g(T,\sigma^2)}
+		      \cdot
+		      \underbrace{1}_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \sum_{i=1}^{n}(X_i-\mu)^2
+			      \text{ is a sufficient statistic for } \sigma^2.
+		      }
+	      \]
 	\item The gamma distribution with parameters $\alpha$ and $\beta$, where the value of $\alpha$ is known and
 	      the value of $\beta$ is unknown $(\beta>0);T= \bar{X}_n$.
+	      To show that
+	      \[
+		      T = \bar{X}_n
+	      \]
+	      \[
+		      f(x_i;\beta)
+		      = \frac{1}{\Gamma(\alpha)\beta^{\alpha}}
+		      x_i^{\alpha-1}
+		      \exp\!\left(-\frac{x_i}{\beta}\right),
+		      \quad x_i>0.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\beta)
+		      =
+		      \prod_{i=1}^{n}
+		      \frac{1}{\Gamma(\alpha)\beta^{\alpha}}
+		      x_i^{\alpha-1}
+		      \exp\!\left(-\frac{x_i}{\beta}\right).
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\beta)
+		      =
+		      \frac{1}{\Gamma(\alpha)^n \beta^{n\alpha}}
+		      \left(\prod_{i=1}^{n} x_i^{\alpha-1}\right)
+		      \exp\!\left(-\frac{\sum_{i=1}^{n} x_i}{\beta}\right).
+	      \]
+	      \[
+		      T = \bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i.
+	      \]
+	      \[
+		      \sum_{i=1}^{n} x_i = n\bar{X}_n = nT,
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\beta)
+		      =
+		      \underbrace{
+			      \beta^{-n\alpha}
+			      \exp\!\left(-\frac{nT}{\beta}\right)
+		      }_{g(T,\beta)}
+		      \cdot
+		      \underbrace{
+		      \frac{1}{\Gamma(\alpha)^n}
+		      \prod_{i=1}^{n} x_i^{\alpha-1}
+		      }_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \bar{X}_n
+			      \text{ is a sufficient statistic for } \beta.
+		      }
+	      \]
 	\item The gamma distribution with parameters $\alpha$ and $\beta$, where the value of $\beta$ is known and
 	      the value of $\beta$ is unknown $(\beta>0);T= \prod^{n}_{i=1}X_n$.
+	      \[
+		      T = \prod_{i=1}^{n} X_i
+	      \]
+	      \[
+		      f(x_i;\alpha)
+		      = \frac{1}{\Gamma(\alpha)\beta^{\alpha}}
+		      x_i^{\alpha-1}
+		      \exp\!\left(-\frac{x_i}{\beta}\right),
+		      \quad x_i>0.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\alpha)
+		      =
+		      \prod_{i=1}^{n}
+		      \frac{1}{\Gamma(\alpha)\beta^{\alpha}}
+		      x_i^{\alpha-1}
+		      \exp\!\left(-\frac{x_i}{\beta}\right).
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\alpha)
+		      =
+		      \frac{1}{\Gamma(\alpha)^n \beta^{n\alpha}}
+		      \left(\prod_{i=1}^{n} x_i^{\alpha-1}\right)
+		      \exp\!\left(-\frac{\sum_{i=1}^{n} x_i}{\beta}\right).
+	      \]
+	      \[
+		      \prod_{i=1}^{n} x_i^{\alpha-1}
+		      =
+		      \left(\prod_{i=1}^{n} x_i\right)^{\alpha-1}.
+	      \]
+	      \[
+		      T = \prod_{i=1}^{n} X_i.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\alpha)
+		      =
+		      \underbrace{
+			      \Gamma(\alpha)^{-n}
+			      \beta^{-n\alpha}
+			      T^{\alpha-1}
+		      }_{g(T,\alpha)}
+		      \cdot
+		      \underbrace{
+			      \exp\!\left(-\frac{\sum_{i=1}^{n} x_i}{\beta}\right)
+		      }_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \prod_{i=1}^{n} X_i
+			      \text{ is a sufficient statistic for } \alpha.
+		      }
+	      \]
 	\item The beta distribution with parameters $\alpha$ and $\beta$, where the value of $\beta$ is known and
 	      the value of $\beta$ is unknown $(\beta>0);T= \prod^{n}_{i=1}X_n$.
+	      \[
+		      T = \prod_{i=1}^{n} X_i
+	      \]
+	      \[
+		      f(x_i;\alpha) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}
+		      x_i^{\alpha-1} (1-x_i)^{\beta-1}, \quad 0<x_i<1.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\alpha)
+		      = \prod_{i=1}^{n} \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}
+		      x_i^{\alpha-1} (1-x_i)^{\beta-1}.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\alpha)
+		      = \left[ \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \right]^n
+		      \left( \prod_{i=1}^{n} x_i^{\alpha-1} \right)
+		      \left( \prod_{i=1}^{n} (1-x_i)^{\beta-1} \right).
+	      \]
+	      \[
+		      \prod_{i=1}^{n} x_i^{\alpha-1} = \left( \prod_{i=1}^{n} x_i \right)^{\alpha-1}.
+	      \]
+	      \[
+		      T = \prod_{i=1}^{n} X_i.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n;\alpha)
+		      =
+		      \underbrace{
+			      \left[ \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \right]^n
+			      T^{\alpha-1}
+		      }_{g(T,\alpha)}
+		      \cdot
+		      \underbrace{
+			      \prod_{i=1}^{n} (1-x_i)^{\beta-1}
+		      }_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \prod_{i=1}^{n} X_i
+			      \text{ is a sufficient statistic for } \alpha.
+		      }
+	      \]
 	\item The discrete uniform distribution take values of $1,2,\ldots, \theta$,
 	      $$
 		      f(x|\theta) = \frac{1}{\theta}; x \in \{1,2,\ldots, \theta\}
 	      $$
+	      \[
+		      f(x_1,\dots,x_n \mid \theta)
+		      = \prod_{i=1}^{n} \frac{1}{\theta}
+		      = \theta^{-n}, \quad \text{if } 1 \le x_i \le \theta \text{ for all } i.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n \mid \theta)
+		      = \theta^{-n} \mathbf{1}_{\{\max(x_1,\dots,x_n) \le \theta\}},
+	      \]
+	      \[
+		      T = \max(X_1,\dots,X_n).
+	      \]
+	      \[
+		      f(x_1,\dots,x_n \mid \theta)
+		      =
+		      \underbrace{\theta^{-n} \mathbf{1}_{\{T \le \theta\}}}_{g(T,\theta)}
+		      \cdot
+		      \underbrace{1}_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \max(X_1,\dots,X_n) \text{ is a sufficient statistic for } \theta.
+		      }
+	      \]
 	\item The uniform distribution on the interval $[a,b]$, where the value of $b$ is known and the value of
 	      $b$ is unknown $(a>b); T = max\{X_1,\ldots,X_n\}$.
+	      \[
+		      f(x \mid a) = \frac{1}{b-a}, \quad a \le x \le b.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n \mid a) = \prod_{i=1}^{n} \frac{1}{b-a}
+		      = (b-a)^{-n}, \quad \text{if } a \le x_i \le b \text{ for all } i.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n \mid a) = (b-a)^{-n} \mathbf{1}_{\{a \le \min(x_1,\dots,x_n)\}}.
+	      \]
+	      \[
+		      T = \min(X_1,\dots,X_n).
+	      \]
+	      \[
+		      f(x_1,\dots,x_n \mid a)
+		      = \underbrace{(b-a)^{-n} \mathbf{1}_{\{a \le T\}}}_{g(T,a)}
+		      \cdot
+		      \underbrace{1}_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \min(X_1,\dots,X_n) \text{ is a sufficient statistic for } a.
+		      }
+	      \]
 	\item The uniform distribution on the interval $[a,b]$, where the value of $b$ is known and the value of
 	      $b$ is unknown $(a<b); T = min\{X_1,\ldots,X_n\}$.
+	      Let $X_1,\dots,X_n$ be a random sample from $U[a,b]$, with pdf
+
+	      \[
+		      f(x \mid b) = \frac{1}{b-a}, \quad a \le x \le b.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n \mid b) = \prod_{i=1}^{n} \frac{1}{b-a}
+		      = (b-a)^{-n}, \quad \text{if } a \le x_i \le b \text{ for all } i.
+	      \]
+	      \[
+		      f(x_1,\dots,x_n \mid b) = (b-a)^{-n} \mathbf{1}_{\{\max(x_1,\dots,x_n) \le b\}}.
+	      \]
+	      \[
+		      T = \max(X_1,\dots,X_n).
+	      \]
+	      \[
+		      f(x_1,\dots,x_n \mid b)
+		      = \underbrace{(b-a)^{-n} \mathbf{1}_{\{T \le b\}}}_{g(T,b)}
+		      \cdot
+		      \underbrace{1}_{h(x_1,\dots,x_n)}.
+	      \]
+	      \[
+		      \boxed{
+			      T = \max(X_1,\dots,X_n) \text{ is a sufficient statistic for } b.
+		      }
+	      \]
 \end{enumerate}
 
 \section*{Problem 3: TBD}
