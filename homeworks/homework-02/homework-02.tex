@@ -703,6 +703,31 @@ $$
 Show that $\sum X_i$ is sufficient for $\theta$, and find the family of distributions of $\sum X_i$. Is the
 family complete?
 
+\[
+	f_\theta(x_1, \dots, x_n) = \prod_{i=1}^n \theta (1-\theta)^{x_i - 1}
+	= \theta^n (1-\theta)^{\sum_{i=1}^n (x_i - 1)}
+	= \theta^n (1-\theta)^{\sum x_i - n}.
+\]
+\[
+	f_\theta(x_1, \dots, x_n) = \underbrace{\theta^n (1-\theta)^{S_n - n}}_{g_\theta(S_n)} \cdot \underbrace{1}_{h(x_1,\dots,x_n)}.
+\]
+\[
+	P(Y_i = y) = \theta (1-\theta)^y, \quad y = 0,1,2,\dots
+\]
+\[
+	\sum_{i=1}^n Y_i \sim \text{NegBin}(r=n, p=\theta)
+\]
+\[
+	P\Big(\sum Y_i = k\Big) = \binom{n+k-1}{k} \theta^n (1-\theta)^k, \quad k=0,1,2,\dots
+\]
+\[
+	\boxed{
+		P(S_n = s) = \binom{s-1}{n-1} \theta^n (1-\theta)^{s-n}, \quad s=n,n+1,\dots
+	}
+\]
+
+Exponential families with one-dimensional parameters and full support are complete. Therefore, $S_n$ is a complete and sufficient statistic for $\theta$.
+
 \section*{Problem 7: TBD}
 Let $X$ be one observation from the pdf
 $$
